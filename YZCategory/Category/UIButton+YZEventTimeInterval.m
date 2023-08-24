@@ -41,8 +41,6 @@ static const char *button_lastActionName = "button_lastActionName";
     });
 }
 
-
-
 - (NSTimeInterval)yz_acceptEventTime {
     return [objc_getAssociatedObject(self, button_acceptEventTime) doubleValue];
 }
