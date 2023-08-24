@@ -6,6 +6,7 @@
 //
 
 #import "ViewController.h"
+//#import "UIButton+YZEventTimeInterval.h"
 
 @interface ViewController ()
 
@@ -16,6 +17,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+ 
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake(100, 100, 80, 30);
+    [button setTitle:@"按钮" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+    
+    self.button.yz_acceptEventInterval = 3.0;
+}
+
+- (void)buttonClick:(UIButton *)sender {
+    NSLog(@"button click");
 }
 
 

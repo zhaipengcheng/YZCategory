@@ -14,6 +14,7 @@
 		625B1F6A2A97449000430313 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 625B1F692A97449000430313 /* Assets.xcassets */; };
 		625B1F6D2A97449000430313 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 625B1F6B2A97449000430313 /* LaunchScreen.storyboard */; };
 		625B1F702A97449000430313 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 625B1F6F2A97449000430313 /* main.m */; };
+		625B1F792A97485500430313 /* UIButton+YZEventTimeInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 625B1F782A97485500430313 /* UIButton+YZEventTimeInterval.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		625B1F6C2A97449000430313 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		625B1F6E2A97449000430313 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		625B1F6F2A97449000430313 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		625B1F772A97485500430313 /* UIButton+YZEventTimeInterval.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+YZEventTimeInterval.h"; sourceTree = "<group>"; };
+		625B1F782A97485500430313 /* UIButton+YZEventTimeInterval.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+YZEventTimeInterval.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +64,7 @@
 		625B1F5C2A97448F00430313 /* YZCategory */ = {
 			isa = PBXGroup;
 			children = (
+				625B1F762A9747F500430313 /* Category */,
 				625B1F5D2A97448F00430313 /* AppDelegate.h */,
 				625B1F5E2A97448F00430313 /* AppDelegate.m */,
 				625B1F602A97448F00430313 /* SceneDelegate.h */,
@@ -74,6 +78,15 @@
 				625B1F6F2A97449000430313 /* main.m */,
 			);
 			path = YZCategory;
+			sourceTree = "<group>";
+		};
+		625B1F762A9747F500430313 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				625B1F772A97485500430313 /* UIButton+YZEventTimeInterval.h */,
+				625B1F782A97485500430313 /* UIButton+YZEventTimeInterval.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +163,7 @@
 				625B1F5F2A97448F00430313 /* AppDelegate.m in Sources */,
 				625B1F702A97449000430313 /* main.m in Sources */,
 				625B1F622A97448F00430313 /* SceneDelegate.m in Sources */,
+				625B1F792A97485500430313 /* UIButton+YZEventTimeInterval.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
