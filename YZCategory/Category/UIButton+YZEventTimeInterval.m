@@ -8,8 +8,8 @@
 #import "UIButton+YZEventTimeInterval.h"
 #import <objc/runtime.h>
 
-static const char *button_acceptEventInterval = "button_eventInterval";
-static const char *button_acceptEventTime = "button_eventInterval";
+static const char *button_acceptEventInterval = "button_acceptEventInterval";
+static const char *button_acceptEventTime = "button_acceptEventTime";
 static const char *button_lastActionName = "button_lastActionName";
 
 @implementation UIButton (YZEventTimeInterval)
@@ -73,7 +73,7 @@ static const char *button_lastActionName = "button_lastActionName";
         // 默认0.1秒
         self.yz_acceptEventInterval = 0.1;
     }
-    BOOL isInInterval = NSDate.date.timeIntervalSince1970 - self.yz_acceptEventTime >= self.yz_acceptEventInterval;
+    BOOL isOutInterval = NSDate.date.timeIntervalSince1970 - self.yz_acceptEventTime >= self.yz_acceptEventInterval;
     
     if (self.yz_acceptEventInterval > 0.0) {
         self.yz_acceptEventTime = NSDate.date.timeIntervalSince1970;
@@ -89,7 +89,7 @@ static const char *button_lastActionName = "button_lastActionName";
     }
      */
 
-    if (isInInterval) {
+    if (isOutInterval) {
         [self yz_sendAction:action to:target forEvent:event];
     } else {
         if([self.yz_lastActionName isEqualToString:NSStringFromSelector(action)]) {
@@ -101,6 +101,5 @@ static const char *button_lastActionName = "button_lastActionName";
     }
     self.yz_lastActionName = NSStringFromSelector(action);
 }
-
 
 @end
