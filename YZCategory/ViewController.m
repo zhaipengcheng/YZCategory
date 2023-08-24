@@ -6,7 +6,7 @@
 //
 
 #import "ViewController.h"
-//#import "UIButton+YZEventTimeInterval.h"
+#import "UIButton+YZEventTimeInterval.h"
 
 @interface ViewController ()
 
@@ -25,7 +25,7 @@
     [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
     
-    self.button.yz_acceptEventInterval = 3.0;
+    button.yz_acceptEventInterval = 3.0;
 }
 
 - (void)buttonClick:(UIButton *)sender {

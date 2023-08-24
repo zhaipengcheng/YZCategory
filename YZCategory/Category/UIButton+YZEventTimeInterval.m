@@ -15,31 +15,33 @@ static const char *button_lastActionName = "button_lastActionName";
 @implementation UIButton (YZEventTimeInterval)
 
 + (void)load {
-   static dispatch_once_t onceToken;
-   dispatch_once(&onceToken, ^{
-       Class class = [self class];
-
-       SEL originalSelector = @selector(sendAction:to:forEvent:);
-       SEL swizzledSelector = @selector(yz_sendAction:to:forEvent:);
-
-       Method originalMethod = class_getInstanceMethod(class, originalSelector);
-       Method swizzledMethod = class_getInstanceMethod(class, swizzledSelector);
-
-       BOOL didAddMethod = class_addMethod(class,
-                                           originalSelector,
-                                           method_getImplementation(swizzledMethod),
-                                           method_getTypeEncoding(swizzledMethod));
-
-       if (didAddMethod) {
-           class_replaceMethod(class,
-                               swizzledSelector,
-                               method_getImplementation(originalMethod),
-                               method_getTypeEncoding(originalMethod));
-       } else {
-           method_exchangeImplementations(originalMethod, swizzledMethod);
-       }
-   });
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        Class class = [self class];
+        
+        SEL originalSelector = @selector(sendAction:to:forEvent:);
+        SEL swizzledSelector = @selector(yz_sendAction:to:forEvent:);
+        
+        Method originalMethod = class_getInstanceMethod(class, originalSelector);
+        Method swizzledMethod = class_getInstanceMethod(class, swizzledSelector);
+        
+        BOOL didAddMethod = class_addMethod(class,
+                                            originalSelector,
+                                            method_getImplementation(swizzledMethod),
+                                            method_getTypeEncoding(swizzledMethod));
+        
+        if (didAddMethod) {
+            class_replaceMethod(class,
+                                swizzledSelector,
+                                method_getImplementation(originalMethod),
+                                method_getTypeEncoding(originalMethod));
+        } else {
+            method_exchangeImplementations(originalMethod, swizzledMethod);
+        }
+    });
 }
+
+
 
 - (NSTimeInterval)yz_acceptEventTime {
     return [objc_getAssociatedObject(self, button_acceptEventTime) doubleValue];
