@@ -79,7 +79,6 @@ static const char *button_lastActionName = "button_lastActionName";
         self.yz_acceptEventTime = NSDate.date.timeIntervalSince1970;
     }
     
-    
     // 有方法不能添加间隔判断
     /*
     NSString *method = NSStringFromSelector(action);
